@@ -13,12 +13,9 @@
 // Carrega as dependências do Composer (autoload).
 require "vendor/autoload.php";
 
+session_start();
 
 $db = new GrupoA\Supermercado\Model\Database();
-$db->deletarProduto("4");
-
-
-
 
 // Determina o protocolo (HTTP ou HTTPS) da requisição atual.
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
@@ -43,7 +40,12 @@ $roteador->namespace("GrupoA\Supermercado\Controller");
 $roteador->group(null);
 // Rota para a página principal.
 $roteador->get("/", "Principal:paginaPrincipal");
+
 $roteador->get("/checkout", "Checkout:paginaCheckout");
+$roteador->post("/checkout", "Checkout:finalizarPedido");
+
+$roteador->get("/registro", "Registro:paginaRegistro");
+$roteador->post('/novoUsuario', "Registro:novoUsuario");
 
 // === Área administrativa ===
 // Grupo de rotas relacionadas ao login.

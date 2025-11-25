@@ -4,7 +4,7 @@ namespace GrupoA\Supermercado\Controller;
 use GrupoA\Supermercado\User; // Importação da classe User (atualmente não utilizada neste arquivo).
 use GrupoA\Supermercado\Produto; // Importação da classe Produto (assumindo que seja um DTO ou classe de modelo).
 use GrupoA\Supermercado\Database; // Importação da classe Database para interação com o banco de dados.
-
+require "lib/redireciona.php";
 /**
  * Classe Admin
  *
@@ -32,12 +32,7 @@ class Admin
      */
     public function __construct()
     {
-        session_start(); // Inicia a sessão (deve ser movido para o index.php).
-        if (!isset($_SESSION["usuario"])) {
-            header("Location: /login"); // Redireciona para o login se não houver usuário na sessão.
-            exit;
-        }
-
+        averigua();
         // Configura o carregador de templates Twig para buscar arquivos na pasta "src/View".
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View");
         // Inicializa o ambiente Twig.

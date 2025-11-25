@@ -12,7 +12,7 @@
 
 <body>
     <div class="page">
-        <a href="index.html" class="seta-voltar"></a>
+        <a href="/" class="seta-voltar"></a>
 
         <header class="brand-header" role="banner">
             <div class="brand" aria-label="Sid'sMart">
@@ -25,19 +25,19 @@
             <main class="card">
                 <h2 class="titulo">Você precisa ter uma conta para realizar suas compras no site.</h2>
 
-                <form class="register-form">
+                <form class="register-form" action="novoUsuario" method="post">
 
                     <div class="grid-2col">
 
-                        <input type="text" name="" placeholder="Nome..." required>
-                        <input type="text" name="" placeholder="Endereço..." required>
-                        <input type="text" name="" placeholder="Email/telefone..." required>
-                        <input type="text" name="" placeholder="CPF..." required>
-                        <input type="text" name="" placeholder="digite sua Senha..." required>
-                        <input type="text" name="" placeholder="Confirme a senha..." required>
+                        <input type="text" name="nome" placeholder="Nome..." required>
+                        <input type="text" name="endereco" placeholder="Endereço..." required>
+                        <input type="text" name="email" placeholder="Email/telefone..." required>
+                        <input type="text" name="cpf" placeholder="CPF..." required>
+                        <input type="text" name="senha" placeholder="digite sua Senha..." required>
+                        <input type="text" name="senha2" placeholder="Confirme a senha..." required>
                      
                         <div class="form-actions">
-                            <button class="btn-register" type="button">Cadastrar-se</button>
+                            <button class="btn-register" type="submit">Cadastrar-se</button>
                         </div>
                 </form>
         </div>

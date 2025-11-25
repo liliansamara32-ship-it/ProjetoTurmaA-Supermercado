@@ -1,6 +1,6 @@
 <?php
 namespace GrupoA\Supermercado\Controller;
-
+require "lib/redireciona.php";
 class Checkout
 {
     private \Twig\Environment $ambiente;
@@ -8,6 +8,7 @@ class Checkout
 
     public function __construct()
     {
+        averigua();
         // Construtor da classe
         $this->carregador =
             new \Twig\Loader\FilesystemLoader("./src/View/Html");
@@ -28,7 +29,7 @@ class Checkout
         $dados["telefone_usuario"] = "12 34567-8901";
 
         $dados["endereco_entrega"] = "Rua Alafebto, 123";
-        $dados["ciade_entrega"] = "Cidade Exemplo";
+        $dados["cidade_entrega"] = "Cidade Exemplo";
         $dados["estado_entrega"] = "Estado Exemplo";
         $dados["cep_entrega"] = "12345-678";
 
@@ -61,5 +62,47 @@ class Checkout
         // Renderiza a view de checkout
         echo $this->ambiente->render("checkout.html", $dados);
     }
+    
+    // 
+    public function finalizarPedido()
+{
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        echo "Método inválido.";
+        return;
+    }
+
+    // dados enviados pelo usuário
+    $nome = $_POST["nome"] ?? "";
+    $destinatario = $_POST["email"] ?? "";
+    $endereco = $_POST["endereco"] ?? "";
+    $cidade = $_POST["cidade"] ?? "";
+    $estado = $_POST["estado"] ?? "";
+    $cep = $_POST["cep"] ?? "";
+    $metodo = $_POST["metodo"] ?? "";
+
+    //  enviar de email email após finalizar pagamento
+         require_once __DIR__ . "/../Service/enviarEmail.php";
+
+
+
+        $mensagemHTML  = "
+            <h2>Pedido Confirmado</h2>
+            <p><strong>Nome:</strong> $nome</p>
+            <p><strong>Email:</strong> $destinatario</p>
+            <p><strong>Endereço:</strong> $endereco, $cidade - $estado</p>
+            <p><strong>CEP:</strong> $cep</p>
+            <p><strong>Pagamento:</strong> $metodo</p>
+            <p>Obrigado por comprar conosco!</p>
+        ";
+
+        $enviado = enviarEmailCliente($destinatario, $nome, $mensagemHTML);
+
+    if ($enviado) {
+        echo "Pedido finalizado e email enviado!";
+    } else {
+        echo "Erro ao enviar email.";
+    }
 }
+
+
 ?>

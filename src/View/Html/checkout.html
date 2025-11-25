@@ -14,14 +14,14 @@
         </header>
 
         <main class="cartao">
-            <form class="checkout-form" action="/checkout" method="post" novalidate>
+            <form class="checkout-form" action="/checkout" method="POST" novalidate>
                 <fieldset style="border:none;padding:0;margin:0;">
                     <legend style="font-weight:600;margin-bottom:6px;">Informações do cliente</legend>
 
                     <div class="row">
                         <div>
                             <label for="nome">Nome completo</label>
-                            <input id="nome" name="nome" type="text" placeholder="{{ nome_completo }} />
+                            <input id="nome" name="nome" type="text" placeholder="{{ nome_completo }}" />
                         </div>
                         <div>
                             <label for="email">E-mail</label>
@@ -31,7 +31,7 @@
 
                     <div>
                         <label for="telefone">Telefone</label>
-                        <input id="telefone" name="telefone type="tel" placeholder="{{ telefone_usuario }}" />
+                        <input id="telefone" name="telefone" type="tel" placeholder="{{ telefone_usuario }}" />
                     </div>
                 </fieldset>
 
@@ -39,7 +39,7 @@
                     <legend style="font-weight:600;margin:12px 0 6px;">Endereço de entrega</legend>
                     <div>
                         <label for="endereco">Endereço</label>
-                        <input id="endereco" name="endereco" type="text" placeholder="{{ endereco_entrega }} />
+                        <input id="endereco" name="endereco" type="text" placeholder="{{ endereco_entrega }}" />
                     </div>
 
                     <div class="row">
@@ -125,7 +125,7 @@
             <div class="totals">
                 <div class="line"><span>Subtotal</span><span>R$ {{ taxa.checkout }}</span></div>
                 <div class="line"><span>Frete</span><span>R$ {{ frete.checkout }}</span></div>
-                <div class="line"><span>Desconto</span><span>R$ {{ desconto.checkout }}}}</span></div>
+                <div class="line"><span>Desconto</span><span>R$ {{ desconto.checkout }}</span></div>
                 <div class="line total"><span>Total</span><span>R$ {{ total.checkout }}</span></div>
             </div>
 

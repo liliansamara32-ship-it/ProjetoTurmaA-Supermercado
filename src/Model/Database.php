@@ -25,10 +25,10 @@ class Database
         // Configurações do banco de dados, crie 
         // variáveis de ambiente para que a conexão 
         // com o banco de dados seja feita.
-        $dbHost = getenv('DB_HOST') ?: '192.168.0.12';
+        $dbHost = getenv('DB_HOST') ?: '127.0.0.1';
         $dbName = getenv('DB_NAME') ?: 'PRJ2DSA';
-        $dbUser = getenv('DB_USER') ?: 'Aluno2DS';
-        $dbPass = getenv('DB_PASS') ?: 'SenhaBD2';
+        $dbUser = getenv('DB_USER') ?: 'root';
+        $dbPass = getenv('DB_PASS') ?: '';
 
         try {
             $this->conexao = new \PDO(
@@ -42,6 +42,25 @@ class Database
         }
     }
 
+    function newUser(User $user): bool
+    {
+        // Acessa a propriedade "conexao" do objeto
+        // ($this->conexao) e prepara a instrução SQL
+        // para ser executada
+        $stmt = $this->conexao->prepare("INSERT INTO usuarios (nome, email, senha, endereco, cpf) VALUES (:nome, :email, :senha, :endereco, :cpf)");
+
+        // Substitui os "placeholders" pelos seus
+        // respectivos valores
+        $stmt->bindValue(":nome", $user->nome);
+        $stmt->bindValue(":email", $user->email);
+        $stmt->bindValue(":senha", $user->senha);
+        $stmt->bindValue(":endereco", $user->endereco);
+        $stmt->bindValue(":cpf", $user->cpf);
+
+        // Executa o sql no banco
+        return $stmt->execute();
+    }
+
     /**
      * Carrega um usuário do banco de dados pelo seu endereço de e-mail.
      *
@@ -53,9 +72,9 @@ class Database
         $stmt = $this->conexao->prepare("SELECT * FROM usuarios WHERE email = :email");
         $stmt->bindParam(":email", $email);
         $stmt->execute();
-        $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        return $usuario ?: null;
+        return $user ?: null;
     }
 
     public function loadUserByName(string $nome): ?array
@@ -66,7 +85,7 @@ class Database
 
     $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-    return $usuario ?: null;
+    return $user ?: null;
 }
 
     // bla bla bla
