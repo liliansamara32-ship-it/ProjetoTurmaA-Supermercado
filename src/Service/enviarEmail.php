@@ -1,27 +1,26 @@
 <?php
-require_once('phpMailer/PHPMailer.php');
-require_once('phpMailer/SMTP.php');
-require_once('phpMailer/Exception.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use GrupoA\Supermercado\Config\Config;
 
 function enviarEmailCliente($destinatario, $nome, $mensagemHTML) {
-    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+    $mail = new PHPMailer(true);
+    $emailConfig = Config::getEmailConfig();
 
 try {
 
     // dados fixos
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = $emailConfig['host'];
     $mail->SMTPAuth = true;
-    $mail->Username = 'sidsmart404@gmail.com';
-    $mail->Password = 'SENHA_DO_APP_FIXA';
-    $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+    $mail->Username = $emailConfig['username'];
+    $mail->Password = $emailConfig['password'];
+    $mail->SMTPSecure = $emailConfig['secure'];
+    $mail->Port = $emailConfig['port'];
 
-    $mail->setFrom('sidsmart404@gmail.com', 'Supermercado');
+    $mail->setFrom($emailConfig['from_email'], $emailConfig['from_name']);
 
     // email do cliente
     $mail->addAddress($destinatario, $nome);

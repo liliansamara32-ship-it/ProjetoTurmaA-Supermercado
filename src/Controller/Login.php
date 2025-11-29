@@ -3,6 +3,7 @@ namespace GrupoA\Supermercado\Controller;
 
 use GrupoA\Supermercado\Model\Database;
 use GrupoA\Supermercado\Model\User;
+use GrupoA\Supermercado\Model\UserRepository;
 
 /**
  * Classe Login
@@ -22,9 +23,9 @@ class Login
     private \Twig\Loader\FilesystemLoader $carregador;
 
     /**
-     * @var Database
+     * @var UserRepository
      */
-    private Database $database;
+    private UserRepository $userRepository;
 
     /**
      * Construtor da classe Login.
@@ -35,7 +36,7 @@ class Login
     {
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/Html");
         $this->ambiente = new \Twig\Environment($this->carregador);
-        $this->database = new Database();
+        $this->userRepository = new UserRepository(Database::getConexao());
     }
 
     public function formularioLogin(array $dados)
@@ -71,7 +72,7 @@ class Login
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $avisos .= "Formato de email inválido.";
         } else {
-            $usuario = $this->database->loadUserByEmail($email);
+            $usuario = $this->userRepository->loadUserByEmail($email);
 
             if ($usuario && password_verify($senha, $usuario["senha"])) {
                 $_SESSION["usuario"] = $usuario;

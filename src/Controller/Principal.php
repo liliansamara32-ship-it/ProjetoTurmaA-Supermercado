@@ -1,6 +1,8 @@
 <?php
 namespace GrupoA\Supermercado\Controller;
-require "lib/redireciona.php";
+
+use GrupoA\Supermercado\Service\Util;
+
 /**
  * Classe Principal
  *
@@ -25,7 +27,7 @@ class Principal
      */
     public function __construct()
     {
-        averigua();
+        Util::averigua();
         // Construtor da classe
         $this->carregador =
             new \Twig\Loader\FilesystemLoader("./src/View/Html");

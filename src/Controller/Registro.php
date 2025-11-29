@@ -3,16 +3,19 @@ namespace GrupoA\Supermercado\Controller;
 
 use GrupoA\Supermercado\Model\Database;
 use GrupoA\Supermercado\Model\User;
+use GrupoA\Supermercado\Model\UserRepository;
 
 class Registro{
         private \Twig\Environment $ambiente;
     private \Twig\Loader\FilesystemLoader $carregador;
+    private UserRepository $userRepository;
 
     public function __construct()
     {
         // Configura o carregador e o ambiente do Twig
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/Html");
         $this->ambiente = new \Twig\Environment($this->carregador);
+        $this->userRepository = new UserRepository(Database::getConexao());
     }
     public function paginaRegistro(array $dados)
     {
@@ -34,13 +37,12 @@ class Registro{
         $senha2 = $dados["senha2"];
 
         $avisos = "";
-        $bd = new Database();
 
         if ($nome == "" || $email == "" || $senha == "" || $endereco == "" || $cpf == "") {
             $avisos .= "Preencha todos os campos.";
         }
         
-        if ($bd->loadUserByEmail($email)) {
+        if ($this->userRepository->loadUserByEmail($email)) {
             $avisos .= "Este email já está cadastrado.";
         }
         
@@ -64,7 +66,7 @@ class Registro{
             $usuario->endereco = $endereco;
             $usuario->cpf = $cpf;
 
-            if ($bd->newUser($usuario)) {
+            if ($this->userRepository->newUser($usuario)) {
                 // Avisa que deu certo
                 $avisos .= "Usuário cadastrado com sucesso.";
             } else {
