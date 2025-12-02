@@ -1,0 +1,14 @@
+Instalação feita com o comando: sudo apt install mysql-server -y.
+o código está instalando o MySQL e dizendo sim para todas as configurações do MySQL.
+
+agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
+que não podem acessar o banco. 
+resolve #218
+
+agora vamos ajustar as configurações e trocar a senha do root, porque a que colocamosa inicialmente foi só um teste.
+ o comando que nós utilizamos foi: user 'root'@'localhost' indentified with mysql_Native_password By 'trocar123';.
+ lembrando, esse código está modificando somente do root e falando que eu quero trocar a senha que coloquei anteriormente. Fizemos isso para escolhermos a senhas juntos.
+ mudei o número da issue podem estava errada. resolve #227
+
+agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
+que não podem acessar o banco. 

@@ -43,6 +43,7 @@ $roteador->get("/", "Principal:paginaPrincipal");
 
 $roteador->get("/checkout", "Checkout:paginaCheckout");
 $roteador->post("/checkout", "Checkout:finalizarPedido");
+$roteador->post("/finalizarCompra", "Pedido:finalizar");
 
 $roteador->get("/registro", "Registro:paginaRegistro");
 $roteador->post('/novoUsuario', "Registro:novoUsuario");
@@ -67,3 +68,4 @@ $roteador->post("/produto/editar", "Admin:editarProduto");
 
 // Despacha a requisição atual para a rota correspondente.
 $roteador->dispatch();
+

@@ -48,7 +48,7 @@
             <img src="/public/img/Seta.png" class="SetaPag"></a>
     </div>
 
-    <form>
+    <form method="POST" action="/finalizarCompra">
 
         <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
 
@@ -112,8 +112,8 @@
                 <!--talvez uma variavel com a soma dos valores-->
 
                 <div class="btnCarrinho">
-                    <button>Finalizar Compra</button>
-                    <button>Adicionar cupom</button>
+                    <button type="submit">Finalizar Compra</button>
+                    <button type="button">Adicionar cupom</button>
                 </div>
             </div>
             <!--{% endfor %}-->

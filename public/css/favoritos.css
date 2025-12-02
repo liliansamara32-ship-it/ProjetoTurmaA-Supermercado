@@ -1,0 +1,336 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E6EBE3;
+    margin: 0;
+    padding: 0;
+}
+
+/*Barra de Pesquisa com as informações*/
+.TopoInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #87B46B;
+    padding: 10px 25px;
+    border: 2px solid #DBB44D;
+}
+
+.logo {
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.3);
+    display: block;
+    pointer-events: none;
+}
+
+.pesquisar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 10px 12px;
+    width: 420px;
+    box-shadow: 0 4px 5px 3px #60824c;
+    position: relative;
+}
+
+.txtPesquisar {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 0px 10px;
+    border-radius: 30px;
+    background: none;
+}
+
+.lupa {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    gap: 12px;
+}
+
+.BtnMenu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 8px;
+    padding: 10px 85px 10px 15px;
+    background-position: 8px center;
+    background-size: 20px;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+    border: 1px solid #FFB800;
+}
+
+.BtnMenu .icon {
+    position: absolute;
+    right: 10px;
+    top: 8%;
+    transform: translateY(-50%);
+    transform: translateX(3%);
+}
+
+.BtnMenu .icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.BtnMenu.P {
+    background: #2B5540;
+}
+
+.BtnMenu.F {
+    background: #568A35;
+
+}
+
+.BtnMenu.E {
+    background: #568A35;
+}
+
+.BtnMenu.C {
+    background: #568A35;
+}
+
+.BtnMenu:hover {
+    background: #FFB800;
+    transform: scale(1.05);
+}
+
+/*Seta da Paginação*/
+
+.Setinha {
+    display: flex;
+    margin: 20px 20px 0;
+}
+
+.SetaPag {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: center center;
+}
+
+.SetaPag:hover {
+    transform: scale(1.3);
+    z-index: 10;
+}
+
+/*Favoritos*/
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.TituloInfo {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.TituloInfo h1 {
+    font-size: 32px;
+    color: #2B5540;
+    margin: 0;
+    font-weight: bold;
+}
+
+.TituloInfo h4 {
+    font-size: 18px;
+    color: #ACD162;
+    margin: 5px 0 0;
+}
+
+h1 {
+    font-size: 18px;
+    color: #2B5540;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    width: 100%;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.tabela.titulos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #568A35;
+}
+
+.divisor {
+    border: none;
+    border-top: 2px solid #ACD162;
+    margin: 10px 0;
+}
+
+.Favoritos {
+    flex: 1 1 65%;
+    min-width: 420px;
+    max-width: 1200px;
+    background: #F9F9F9;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*Produto dentro do Favoritos*/
+.produto {
+    background: #F9F9F9;
+    border-radius: 15px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.169);
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.produto-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/*imagem do produto*/
+.produto-img {
+    width: 65px;
+    height: 65px;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.produto-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.produto-nome {
+    color: #3b5932;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.produto-preco {
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+}
+
+.produto-preco span {
+    color: #f75d18;
+    font-weight: 600;
+}
+
+.produto-desconto {
+    background: #87B46B;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    width: fit-content;
+}
+
+.acao-compra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-left: 100px;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #DDEECC;
+    border-radius: 30px;
+    padding: 4px;
+}
+
+.quantidade button {
+    background: #ACD162;
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.quantidade button:hover {
+    background: #8CBF52;
+}
+
+.quantidade .QTDE {
+    pointer-events: none;
+    user-select: none;
+    width: 40px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    background: none;
+    color: #333;
+}
+
+.btnFavoritos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btnFavoritos button {
+    background: #F2F2F2;
+    border: 1.5px solid #ACD162;
+    color: #9D9D9D;
+    border-radius: 25px;
+    padding: 6px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btnFavoritos button:hover {
+    background: #ACD162;
+    color: #fff;
+}

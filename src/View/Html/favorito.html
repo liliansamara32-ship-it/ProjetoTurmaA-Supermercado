@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos</title>
+    <link rel="stylesheet" href="/public/css/favoritos.css">
+    <script src="/public/script/favoritos.js"></script>
+</head>
+
+<body>
+
+    <!--Pesquisa e menu-->
+    <div class="TopoInfo">
+
+        <!--redireciona pra pag inicial-->
+        <div class="LogoPag">
+            <a href="#" class="Logosid">
+                <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+        </div>
+
+        <div class="pesquisar">
+            <input type="text" class="txtPesquisar">
+            <span class="lupa"><img src="../Fotos/lupa.png"></span>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="BtnMenu P">Perfil
+                <span class="icon"><img src="../Fotos/Usuario.png"></span> </a>
+
+            <a href="#" class="BtnMenu F">Favoritos
+                <span class="icon"><img src="../Fotos/Favoritos.png"></span> </a>
+
+            <a href="#" class="BtnMenu E">Entrega
+                <span class="icon"><img src="../Fotos/Entrega.png"></span> </a>
+
+            <a href="#" class="BtnMenu C">Carrinho
+                <span class="icon"><img src="../Fotos/Carrinho.png"></span> </a>
+        </nav>
+    </div>
+
+    <!--Seta da navegação-->
+    <div class="Setinha">
+        <a href="#">
+            <img src="../Fotos/Seta.png" class="SetaPag"></a>
+    </div>
+
+    <!--titulo favorito-->
+    <div class="TituloInfo">
+        <h1>Favoritos</h1>
+        <h4>Seus produtos favoritos</h4>
+    </div>
+
+    <!--Formatação dos favoritos-->
+    <form>
+
+        <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
+
+        <div class="Favoritos">
+
+            <div class="tabela titulos">
+                <h1>Itens salvos</h1>
+                <p>total de produtos: {{produto.total}}</p>
+            </div>
+            <hr class="divisor">
+
+            <div class="produto">
+                <div class="produto-info">
+                    <img src="{{ produto.foto1 }}" class="produto-img">
+
+                    <div class="produto-detalhes">
+                        <h3 class="produto-nome">Nome:{{ produto.nome }}</h3>
+                        <p class="produto-preco">Preço: <span>R$ {{ produto.valor }}</span></p>
+                        <span class="produto-desconto">Desconto:{{ produto.porcentagem }}</span>
+                    </div>
+                </div>
+
+                <div class="acao-compra">
+                    <div class="quantidade">
+                        <button class="menos">-</button>
+                        <input type="text" min="1" value="1" class="QTDE" readonly>
+                        <button class="mais">+</button>
+                    </div>
+
+                    <div class="btnFavoritos">
+                        <button>Remover</button>
+                        <button>Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <!--{% endfor %}
+        {% for Carrinho in informações %}-->
+
+    &copy Sid's-Mart 2025
+</body>
+
+</html>
