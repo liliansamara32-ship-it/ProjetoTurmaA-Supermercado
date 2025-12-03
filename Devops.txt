@@ -3,8 +3,13 @@ o código está instalando o MySQL e dizendo sim para todas as configurações d
 
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
-resolve #218
 
+CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #340
+
+O projeto foi desenvolvido a partir da instalação em uma ISO do Ubuntu, utilizando o Ventoy para torna-lá bootavél em um pendrive.
+Após a instalação do sistema operacional, foram implementados os serviços MySQL,
+Apache2, PhpMyAdmin e FTP, essencial para a hospedagem de sites. É importante destacar a criação de uma base de dados para o uso da sala.
+resolve #288
 agora vamos ajustar as configurações e trocar a senha do root, porque a que colocamosa inicialmente foi só um teste.
  o comando que nós utilizamos foi: user 'root'@'localhost' indentified with mysql_Native_password By 'trocar123';.
  lembrando, esse código está modificando somente do root e falando que eu quero trocar a senha que coloquei anteriormente. Fizemos isso para escolhermos a senhas juntos.
@@ -12,3 +17,24 @@ agora vamos ajustar as configurações e trocar a senha do root, porque a que co
 
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
+
+O comando utilizado foi: sudo apt install apache2 -y.
+essse comando instala o apache e diz sim para as configurações iniciais.
+
+As etapas realizadas no projeto foram:
+
+1. Instalação da ISO do Ubuntu em um pendrive utilizando ventoy e configuração do boot;
+2. Instalação do sistema operacional em uma máquina local;
+3. Download e instalação do MySQL e do Apache24. Configuração inicial dos serviços;
+4. Configuração inicial dos serviços;
+5. instalação do Php;
+6. instalação do PhpMyAdmin;
+7. configuração inicial;
+8. Instalação do FTP;
+9. Instalação do vsftpd;
+10. Configuração do FTP;
+11. configuração dos usuários;
+12. criação do banco de dados;
+13. implementação das tabelas.
+
+CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #348

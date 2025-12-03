@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Admin) Funcionários</title>
+    <link rel="stylesheet" href="/public/css/funcionarios_admin.css">
+</head>
+
+<body>
+
+    <!--Barra do Úsuario-->
+    <header class="cabeçalho">
+
+        <!--encaminha para a tela inicial do admin-->
+        <div class="LogoPag">
+            <a href="#" class="LogoAdmin">
+                <span class="logo"><img src="/public/img/bagulhovermelho.png"></span> </a>
+        </div>
+
+        <h1>Painel Administrativo (Funcionários)</h1>
+    </header>
+
+    <div class="Setinha">
+        <a href="#">
+            <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
+    </div>
+
+    <form>
+
+        <div class="Lembrete">
+            <p>Lembrete: as alterações feitas a seguir são permanentes. As informações abaixo possuem apenas dados de
+                FUNCIONÁRIOS.</p>
+        </div>
+
+        <!--Campos da tabela-->
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Data de nascimento</th>
+                    <th>Email</th>
+                    <th>Telefone 1</th>
+                    <th>Telefone 2</th>
+                    <th>CPF</th>
+                    <th>Senha</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody class="Campo-User">
+
+                <!--Informações dos clientes-->
+                {% for funcionario in usuario %}
+                <div>
+                    <tr>
+                        <td>{{ funcionario.codigo }}</td>
+                        <td>{{ funcionario.nome }}</td>
+                        <td>{{ funcionario.datanascimento }}</td>
+                        <td>{{ funcionario.email }}</td>
+                        <td>{{ funcionario.tel1 }}</td>
+                        <td>{{ funcionario.tel2 }}</td>
+                        <td>{{ funcionario.cpf }}</td>
+                        <td>{{ funcionario.senha }}</td>
+
+                        <!--editar ou excluir úsuario-->
+                        <td class="acoes">
+                            <button class="editar" href="#">
+                                <span class="icons"><img src="/public/img/lapis.png"></span></button>
+                            <button class="excluir" href="#">
+                                <span class="icons"><img src="/public/img/lixeira.png"></span></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </form>
+
+    <!--troca as páginas-->
+    <!-- # mudar a referencia pelo codigo-->
+    <div class="paginacao">
+        <a href="#">&lt;</a>
+        <a href="#">&gt;</a>
+    </div>
+
+    &copy Sid's-Mart 2025
+</body>
+
+</html>

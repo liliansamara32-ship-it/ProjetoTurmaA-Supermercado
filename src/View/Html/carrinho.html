@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
-    <link rel="stylesheet" href="../Css/carrinho.css">
     <script src="/public/script/carrinho.js"></script>
 
     <link rel="stylesheet" href="/public/css/carrinho.css">
@@ -14,13 +13,13 @@
 <body>
 
     <!--Pesquisa e menu-->
-    <div class="TopoInfo">
+    <header class="TopoInfo">
 
-         <!--redireciona pra pag inicial-->
-         <div class="LogoPag">
+        <!--redireciona pra pag inicial-->
+        <div class="LogoPag">
             <a href="#" class="Logosid">
-            <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
-         </div>
+                <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+        </div>
 
         <div class="pesquisar">
             <input type="text" class="txtPesquisar">
@@ -40,14 +39,15 @@
             <a href="#" class="BtnMenu C">Carrinho
                 <span class="icon"><img src="/public/img/Carrinho.png"></span> </a>
         </nav>
-    </div>
+    </header>
 
     <!--Seta da navegação-->
     <div class="Setinha">
         <a href="#">
-            <img src="/public/img/Seta.png" class="SetaPag"></a>
+            <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
     </div>
 
+    
     <form method="POST" action="/finalizarCompra">
 
         <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
@@ -58,11 +58,26 @@
 
                 <div class="tabela titulos">
                     <h1>SEU CARRINHO</h1>
-                    <p>total de produtos: {{produto.total}}</p>
+                    <p>total de produtos: {{carrinho|length}}</p>
                 </div>
                 <hr class="divisor">
 
+                 {% for produto in carrinho %}
+
+   <form action="/carrinho/add" method="POST" class="form-produto">
+    <input type="hidden" name="product_id" value="{{ produto.id }}">
+    <input type="hidden" name="nome" value="{{ produto.nome }}">
+    <input type="hidden" name="valor" value="{{ produto.valor }}">
+    <input type="hidden" name="foto1" value="{{ produto.foto1 }}">
+    <input type="hidden" class="QTDE" name="QTDE" value="{{ produto.QTDE }}">
+
                 <div class="produto">
+
+                    <label class="selecionar">
+                        <input type="checkbox" class="fav-checkbox">
+                        <span class="icon"></span>
+                    </label>
+
                     <div class="produto-info">
                         <img src="{{ produto.foto1 }}" class="produto-img">
 
@@ -75,40 +90,42 @@
 
                     <div class="acao-compra">
                         <div class="quantidade">
-                            <button class="menos">-</button>
-                            <input type="text" min="1" value="1" class="QTDE" readonly>
-                            <button class="mais">+</button>
+                            <button type="button" class="menos">-</button>
+                            <input type="text" min="1" value="{{ produto.QTDE }}" class="qtde" readonly>
+                            <button type="button" class="mais">+</button>
                         </div>
 
                         <div class="btnCarrinho">
-                            <button class="remover">Remover</button>
-                            <button class="favoritar">Favoritar</button>
+                            <button class="remover" type="submit" formaction="/carrinho/remove">Remover</button>
+                            <button class="favoritar" type="submit" formaction="/favoritos/add">Favoritar</button>
                         </div>
                     </div>
                 </div>
+                </form>
+
+            {% endfor %}
             </div>
 
-            <!--{% endfor %}
-        {% for Carrinho in informações %}-->
 
             <div class="Resumo">
 
                 <div class="tabela2 titulos">
                     <h1>RESUMO</h1>
-                    <p><!--estimativa de entrega--> {{ carrinho.tempo }}</p>
+                    <p><!--estimativa de entrega--> {{ resumo.tempo }}</p>
                 </div>
                 <hr class="divisor">
 
                 <div class="Endereço">
                     <img src="/public/img/Local.png" alt="Localização">
-                    <span>Endereço: {{ carrinho.endereco }}</span>
+                    <span>Endereço: {{ resumo.endereco }}</span>
                 </div>
 
                 <p class="linha">Subtotal: <i class="traco"></i> <span> R${{ carrinho.subtotal }}</span></p>
                 <p class="linha">Desconto: <i class="traco"></i> <span> R${{ carrinho.desconto }}</span></p>
                 <p class="linha">Taxa de entrega: <i class="traco"></i> <span> R${{ carrinho.txEntrega }}</span></p>
+                <p class="linha">Itens selecionados: <i class="traco"></i> <span> R${{ carrinho.itens }}</span></p>
                 <hr class="divisor">
-                <p class="linha total">TOTAL: <span> R${{ carrinho.total }} </span></p>
+                <p class="linha total">TOTAL: <span> R${{ resumo.total }} </span></p>
                 <!--talvez uma variavel com a soma dos valores-->
 
                 <div class="btnCarrinho">
@@ -121,6 +138,25 @@
         </div>
     </form>
 
+    <!--Rodapé-->
+    <footer class="Rodape">
+
+        <div class="LogonoRodape">
+            <div class="rodape-Logo">
+                <img src="/public/img/Logo.svg" />
+            </div>
+
+            <!-- centro: texto legal / informações -->
+            <div class="rodapeTexto">
+                <p class="rodapetitulo">© Sid's-Mart 2025 &nbsp; Mercado - Etec Jaraguá</p>
+                <p class="rodapeInfo"> • Endereço: R. Jairo de Almeida Machado, 401 - Jaraguá, São Paulo - SP, 02998-060
+                </p>
+                <p class="rodapeInfo"> •Instagram: @developers._</p>
+                <p class="rodapeInfo"> • O melhor curso da Etec Jaraguá | Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+
+    </footer>
     &copy Sid's-Mart 2025
 </body>
 

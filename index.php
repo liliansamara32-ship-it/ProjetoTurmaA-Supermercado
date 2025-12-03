@@ -15,8 +15,6 @@ require "vendor/autoload.php";
 
 session_start();
 
-$db = new GrupoA\Supermercado\Model\Database();
-
 // Determina o protocolo (HTTP ou HTTPS) da requisição atual.
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 // Obtém o host da requisição (ex: localhost, www.example.com).
@@ -41,12 +39,24 @@ $roteador->group(null);
 // Rota para a página principal.
 $roteador->get("/", "Principal:paginaPrincipal");
 
+// checkout
 $roteador->get("/checkout", "Checkout:paginaCheckout");
 $roteador->post("/checkout", "Checkout:finalizarPedido");
 $roteador->post("/finalizarCompra", "Pedido:finalizar");
 
+// rota do carrinho(>_<)
+$roteador->get('/carrinho', 'Carrinho:index');
+
+//registro
 $roteador->get("/registro", "Registro:paginaRegistro");
 $roteador->post('/novoUsuario', "Registro:novoUsuario");
+
+//carrinho
+$roteador->get("/carrinho/view", "Carrinho:view");
+$roteador->post("/carrinho/add", "Carrinho:add");
+$roteador->post("/carrinho/remove", "Carrinho:remove");
+$roteador->post("/carrinho/clear", "Carrinho:clear");
+
 
 // === Área administrativa ===
 // Grupo de rotas relacionadas ao login.
@@ -64,6 +74,9 @@ $roteador->group("admin");
 $roteador->get("/produto/{id}/editar", "Admin:formularioEditarProduto");
 // Rota para processar a edição de produto.
 $roteador->post("/produto/editar", "Admin:editarProduto");
+
+//rota para processar os produto
+$roteador->post("/produto/{id}/deletar", "Admin:deletarUmProduto");
 
 
 // Despacha a requisição atual para a rota correspondente.

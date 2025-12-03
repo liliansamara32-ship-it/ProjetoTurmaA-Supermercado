@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/public/css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Aoboshi+One&display=swap" rel="stylesheet">
- 
- 
 </head>
-<body>
- 
- 
-    <div class="logo-login">
- 
-        <div class="logo">
-    <div class="brand" aria-label="Sid'sMart">
-        <span class="brand-green">Sid'</span><span class="brand-apos">s</span><span class="brand-red">Mart</span>
-    </div>
-</div>
-       
-        <div class="login">
-           
-            <div class="login-faça">
-                <label>Faça seu login já !</label>
-            </div>
-           
-            <form action="/login/autenticar">
-               
-            <input type="text" name="" id="email" placeholder="Email..."> <br>
-            <input type="password" name="senha" id="" placeholder="Senha..."> <div class="olho" id="olho"><button><img src="../Img/pngtree-eye-icon-image_1338426-removebg-preview.png" alt="Ver Senha"></button></div> <br> <!-- precisa fazer o css e js do botão de ver senha (qnd clicar no botão o input vira type"text") -->
 
-            <div class="entrar-google">
-            <div class="entrar"><button type="submit">Confirmar</button> </div>
-            <div class="google"> <button><label>Entrar com</label><br> <img src="/public/img/Google__G__logo.svg.png" alt="Google"></button> </div>
-            </div>
-       
-            <div class="recsenha"><a href="">ESQUECEU A SENHA?</a></div> <!-- colocar rota -->
+    <body>
+        <div class="page">
+            <a href="/" class="seta-voltar"></a>
 
-            <div class="cadastro">
-                <div class="cadastro-label"></div><label>Não tem conta?</label></div>
-                <div class="cadastro-button"><button><label>Cadastre-se!</label></button> </div>
+            <header class="brand-header" role="banner">
+                <div class="brand" aria-label="Sid'sMart">
+                    <span class="brand-green">Sid'</span><span class="brand-apos">s</span><span
+                        class="brand-red">Mart</span>
+                </div>
+            </header>
+            <div class="container">
+
+                <main class="card">
+                    <h2 class="titulo">Faça seu login já!</h2>
+
+                    <form class="login-form" action="/login/autenticar" method="post">
+
+                        <div class="grid-2col">
+
+                            <input type="text" name="" id="email" placeholder="Email..."> <br>
+                            <input type="password" name="senha" id="" placeholder="Senha...">
+                            <div class="olho" id="olho"><button>
+                                    <img src="/public/img/pngtree-eye-icon-image_1338426-removebg-preview.png"
+                                        alt="Ver Senha"></button></div> <br>
+
+                            <div class="btn-login">
+                                <button type="submit">Entrar</button>
+                            </div>
+                    </form>
+
+
+                    <div class="recsenha"><a href="">ESQUECEU A SENHA?</a></div>
+
+                    <div class="cadastro">
+                        <div class="cadastro-label"></div><label>Não tem conta?</label>
+                    </div>
+                    <div class="cadastro-button"><button><label>Cadastre-se!</label></button> </div>
+
+
             </div>
 
-            </form>
- 
         </div>
-       
-    </div>
-   
- 
-</body>
-</html>
+    </body>
+
+    </html>

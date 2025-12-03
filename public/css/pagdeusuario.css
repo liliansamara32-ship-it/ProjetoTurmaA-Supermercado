@@ -1,0 +1,289 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #E6EBE3;
+  margin: 0;
+  padding: 0;
+}
+.TopoInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #87B46B;
+  padding: 10px 25px;
+  border: 2px solid #DBB44D;
+}
+
+.logo {
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.3);
+  display: block;
+  pointer-events: none;
+}
+
+.pesquisar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 30px;
+  padding: 10px 12px;
+  width: 420px;
+  box-shadow: 0 4px 5px 3px #60824c;
+  position: relative;
+}
+
+.txtPesquisar {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0px 10px;
+  border-radius: 30px;
+  background: none;
+}
+
+.lupa {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  gap: 12px;
+}
+
+.BtnMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 8px;
+  padding: 10px 85px 10px 15px;
+  background-position: 8px center;
+  background-size: 20px;
+  border-radius: 30px;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+  border: 1px solid #FFB800;
+}
+
+.BtnMenu .icon {
+  position: absolute;
+  right: 10px;
+  top: 8%;
+  transform: translateY(-50%);
+  transform: translateX(3%);
+}
+
+.BtnMenu .icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.BtnMenu.P {
+  background: #2B5540;
+}
+
+.BtnMenu.F {
+  background: #568A35;
+
+}
+
+.BtnMenu.E {
+  background: #568A35;
+}
+
+.BtnMenu.C {
+  background: #568A35;
+}
+
+.BtnMenu:hover {
+  background: #FFB800;
+  transform: scale(1.05);
+}
+
+
+/*cabeçalho*/
+
+
+.successo {
+    background-color: #98D37C; /* verde claro */
+    width: 100%;
+    height: 140px; /* ajuste conforme quiser */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.successo .icon {
+    color: white;
+    font-size: 40px;
+    
+    width: 60px;
+    height: 60px;
+    border: 3px solid #5C8E47; /* borda verde escura */
+    border-radius: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container{
+  background: #ffffff;
+  
+  max-width: 600px;
+  margin: 0px auto; /* centraliza */
+  padding: 80px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+}
+.titulo{
+       font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    font-size: 22px;
+    color: #2B5540;
+     font-weight: bold;
+}
+.escrita{
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    font-size: 16px;
+    color: #555555;
+    font-weight: bold;
+}
+
+.info-grid{
+        display: grid;
+    grid-template-columns: 1fr 1fr; /* duas colunas */
+    gap: 40px; /* espaço entre as colunas */
+     /* opcional */
+}
+.info{
+        display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.info .label{
+font-size: 14px;
+    color: #555; /* cinza mais fraco */
+    margin-bottom: 4px;
+}
+.info .value{
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.subtitulo{
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    font-size: 16px;
+    color: #555555;
+    font-weight: bold;
+}
+.Rodape {
+  background: #F7F8F6;
+  border-top: 3px solid #DBB44D;
+  padding: 12px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.LogonoRodape {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.rodape-Logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.rodapeTexto {
+  flex: 1 1 60%;
+  text-align: center;
+  color: #6d6d6d;
+}
+
+.rodapetitulo {
+  margin: 0;
+  font-weight: 600;
+  color: #254a34;
+  font-size: 13px;
+}
+
+.rodapeInfo {
+  margin: 2px 0 0;
+  font-size: 11px;
+  line-height: 1.1;
+  color: #9aa290;
+  opacity: 0.95;
+}
+.btn {
+  display: block;
+  width: 180px;
+  padding: 12px 0;
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+/* Botão verde (meus pedidos) */
+.botao1 {
+  background-color: #b8d976;   /* verde claro da imagem */
+  color: #ffffff;              /* texto branco */
+  padding: 14px 0;             /* altura parecida */
+  width: 220px;                /* largura igual ao visual */
+  font-size: 16px;             /* fonte maior */
+  font-weight: 600;            /* deixa o texto mais marcante */
+  border: none;
+  border-radius: 6px;          /* cantos arredondados leves */
+  text-align: center;
+  cursor: pointer;
+  display: block;              /* permite centralizar com margin auto */
+  margin: 10px auto;
+}
+
+.botao1:hover {
+  background-color: #a8c86c;   /* escurece um pouco ao passar o mouse */
+}
+
+/* Botão branco com borda */
+
+.botao2 {
+  background-color: #b8d976;   /* verde claro da imagem */
+  color: #ffffff;              /* texto branco */
+  padding: 14px 0;             /* altura parecida */
+  width: 150px;                /* largura igual ao visual */
+  font-size: 16px;             /* fonte maior */
+  font-weight: 600;            /* deixa o texto mais marcante */
+  border: none;
+  border-radius: 6px;          /* cantos arredondados leves */
+  text-align: center;
+  cursor: pointer;
+  display: block;              /* permite centralizar com margin auto */
+  margin: 10px auto;
+}
+
+.botao2:hover {
+  background-color: #a8c86c;   /* escurece um pouco ao passar o mouse */
+}

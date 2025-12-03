@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedido único</title>
-    <link rel="stylesheet" href="../Css/unico.css">
     <script src="/public/script/unico.js"></script>
     <link rel="stylesheet" href="/public/css/unico.css">
 </head>
@@ -13,13 +12,13 @@
 <body>
 
     <!--Pesquisa e menu-->
-    <div class="TopoInfo">
+    <header class="TopoInfo">
 
-         <!--redireciona pra pag inicial-->
-         <div class="LogoPag">
+        <!--redireciona pra pag inicial-->
+        <div class="LogoPag">
             <a href="#" class="Logosid">
-            <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
-         </div>
+                <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+        </div>
 
         <div class="pesquisar">
             <input type="text" class="txtPesquisar">
@@ -39,12 +38,12 @@
             <a href="#" class="BtnMenu C">Carrinho
                 <span class="icon"><img src="/public/img/Carrinho.png"></span> </a>
         </nav>
-    </div>
+    </header>
 
     <!--Seta da navegação-->
     <div class="Setinha">
         <a href="#">
-            <img src="/public/img/Seta.png" class="SetaPag"></a>
+            <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
     </div>
 
     <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
@@ -67,15 +66,24 @@
             </div>
 
             <div class="acao-compra">
+
+                <button class="Comprar">Comprar</button>
+
                 <div class="quantidade">
                     <button class="menos">-</button>
                     <input type="text" min="1" value="1" class="QTDE" readonly>
                     <button class="mais">+</button>
                 </div>
 
-                <button class="Comprar">Comprar</button>
+                <!--Adicionar ao carrinho e favoritos-->
+                <nav class="carrinho-favorito">
+                    <button class="BtnFavorito">
+                        <span class="adicionar"><img src="/public/img/Star.png"></span> </button>
+
+                    <button href="#" class="BtnCarrinho">
+                        <span class="adicionar"><img src="/public/img/Carrinhozinho.png"></span> </button>
+
             </div>
-            <!-- aqui pode colocar o mesmo produto com variações diferentes. ex:cor -->
         </div>
     </div>
 
@@ -86,17 +94,30 @@
     <div class="InfoProduto">
         <p>Detalhes: {{ produto.detalhes }}</p> <!--ex:categoria, tipo de envio, etc-->
         <p>Descrição: {{ produto.descricao }}</p> <!--ex:tamanho, material, qtde, etc-->
-        <p>Validade: {{ produto.validade }}</p>  <!--dependendo do produto não precisa-->
+        <p>Validade: {{ produto.validade }}</p> <!--dependendo do produto não precisa-->
     </div>
     <!--{% endfor %}-->
 
-    <!--Possiveis implementações
-    <h3>Avaliações</h3>
-    <h3>Comentários</h3>
-    <h3>produtos semelhantes</h3> -->
+    <!--Rodapé-->
+    <footer class="Rodape">
 
+        <div class="LogonoRodape">
+            <div class="rodape-Logo">
+                <img src="/public/img/Logo.svg" />
+            </div>
 
-    &copy Sid's-Mart 2025
+            <!-- centro: texto legal / informações -->
+            <div class="rodapeTexto">
+                <p class="rodapetitulo">© Sid's-Mart 2025 &nbsp; Mercado - Etec Jaraguá</p>
+                <p class="rodapeInfo"> • Endereço: R. Jairo de Almeida Machado, 401 - Jaraguá, São Paulo - SP, 02998-060
+                </p>
+                <p class="rodapeInfo"> •Instagram: @developers._</p>
+                <p class="rodapeInfo"> • O melhor curso da Etec Jaraguá | Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+
+    </footer>
+
 </body>
 
 </html>

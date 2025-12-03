@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/public/css/checkout.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="TopoInfo">
+
+                <!--redireciona pra pag inicial-->
+                <div class="LogoPag">
+                    <a href="#" class="Logosid">
+                        <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+                </div>
+        
+                <div class="pesquisar">
+                    <input type="text" class="txtPesquisar">
+                    <span class="lupa"><img src="../img/lupa.png"></span>
+                </div>
+        
+                <nav class="menu">
+                    <a href="#" class="BtnMenu P">Perfil
+                        <span class="icon"><img src="../Fotos/Usuario.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu F">Favoritos
+                        <span class="icon"><img src="../img/Favoritos.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu E">Entrega
+                        <span class="icon"><img src="../img/Entrega.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu C">Carrinho
+                        <span class="icon"><img src="../img/Carrinho.png"></span> </a>
+                </nav>
+            </div>
+        
+            <!--Seta da navegação-->
+            <div class="Setinha">
+                <a href="#">
+                    <img src="../Fotos/Seta.png" class="SetaPag"></a>
+            </div>
+            <h1>{{ titulo }}</h1>
+            <p class="lead">{{ conteudo }}</p>
+        </header>
+
+        <div>
+            <form class="finalizacao-pedido" aria-label="Resumo do pedido">
+                <div>
+                    <h3 style="margin:8px 8px 8px;">Pedido confirmado!</h3>
+                    <p style="margin:8px;color:var(--muted);font-size:0.95rem;">Obrigado, {{nome}}! Seu pagamento foi aprovado e o pedido já está sendo preparado.</p>
+                </div>
+
+                <div class="items" role="list" aria-live="polite">
+                    <div class="item" role="listitem">
+                        <div class="item-info">
+                            <div style="margin:8px;font-weight:80;">Data de pedido</div>
+                            <div style="margin:8px;color:var(--muted);font-size:0.9rem;">Data de envio</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div class="item-qty">{{ data.pedido }}</div>
+                            <div style="margin:8px;font-weight:600;margin-top:6px;">{{ data.envio }}</div>
+                        </div>
+
+                        <div class="item-info">
+                            <div style="margin:8px;font-weight:80;">Status do pagamento</div>
+                            <div style="margin:8px;color:var(--muted);font-size:0.9rem;">Número do pedido</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div class="item-qty">{{ status.pagamento }}</div>
+                            <div style="margin:8px;font-weight:600;margin-top:6px;">{{ numero.pedido }}</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="totals">
+                    <div class="line total"><span>Valor pago</span><span>R$ {{ total.checkout }}</span></div>
+                </div>
+    
+                <div style="display:flex; justify-content:center; margin-top:6px;">
+                    <button type="button" class="primary" onclick="document.close">Meus pedidos</button><br>
+                    <button type="button" class="secondary" onclick="document.close">Voltar</button>
+                </div>
+            </aside>
+        </div>
+</body>
+</html>

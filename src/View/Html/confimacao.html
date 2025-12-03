@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar</title>
+    <link rel="stylesheet" href="/public/css/checkout.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="TopoInfo">
+
+                <!--redireciona pra pag inicial-->
+                <div class="LogoPag">
+                    <a href="#" class="Logosid">
+                        <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+                </div>
+        
+                <div class="pesquisar">
+                    <input type="text" class="txtPesquisar">
+                    <span class="lupa"><img src="../img/lupa.png"></span>
+                </div>
+        
+                <nav class="menu">
+                    <a href="#" class="BtnMenu P">Perfil
+                        <span class="icon"><img src="../Fotos/Usuario.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu F">Favoritos
+                        <span class="icon"><img src="../img/Favoritos.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu E">Entrega
+                        <span class="icon"><img src="../img/Entrega.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu C">Carrinho
+                        <span class="icon"><img src="../img/Carrinho.png"></span> </a>
+                </nav>
+            </div>
+        
+            <!--Seta da navegação-->
+            <div class="Setinha">
+                <a href="#">
+                    <img src="../Fotos/Seta.png" class="SetaPag"></a>
+            </div>
+            <h1>{{ titulo }}</h1>
+            <p class="lead">{{ conteudo }}</p>
+        </header>
+
+        <main class="cartao">
+            <form class="checkout-form" action="/checkout" method="POST" novalidate>
+                <fieldset style="border:none;padding:0;margin:0;">
+                    <legend style="font-weight:600;margin:12px 0 6px;">Pagamento</legend>
+                    <div>
+                        <label for="metodo">Método</label>
+                        <select id="metodo" name="metodo" required>
+                            <option value="">Selecione</option>
+                            <option value="cartao">Cartão de crédito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="pix">PIX</option>
+                        </select>
+                    </div><br>
+                </fieldset>
+
+                <fieldset style="border:none;padding:0;margin:0;">
+                    <legend style="font-weight:600;margin:12px 0 6px;">Informe os dados necessários para o cadastro do cartão ou já use um cadastrado e salve para compras futuras</legend>
+                    <div id="campos-cartao" style="display:block;">
+                        <div class="row" style="margin-top:6px;">
+                            <div>
+                                <label for="numero-cartao">Número do cartão</label>
+                                <input id="numero-cartao" name="numero-cartao" type="number" maxlength="19" value="{{ numero_cartao }}" />
+                            </div>
+                            <div>
+                                <label for="nome-cartao">Nome</label>
+                                <input id="nome-cartao" name="nome-cartao" type="text" value="{{ nome_cartao }}" />
+                            </div>
+                            <div>
+                                <label for="bandeira-cartao">Bandeira</label>
+                                <input id="bandeira-cartao" name="bandeira-cartao" type="number" maxlength="19" value="{{ bandeira_cartao }}" />
+                            </div>
+                            <div>
+                                <label for="validade">Validade (MM/AA)</label>
+                                <input id="validade" name="validade" type="number" maxlength="5" value="{{ validade_cartao }}" />
+                            </div><br>
+                        </div>
+                        <div style="margin-top:8px;">
+                            <label for="cvv">CVV</label>
+                            <input id="cvv" name="cvv" type="number" maxlength="4" value="{{ cvv_cartao }}" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset style="border:none;padding:0;margin:0;">
+                    <div class="actions" style="margin-top:12px;">
+                        <button type="submit" class="primary">Salvar cartão</button>
+                        <p>Salvando o cartão, você está ciente de que essa ação foi autorizada</p>
+                    </div>
+                </fieldset><br>
+                <button type="button" class="secondary" onclick="window.history.back()">Voltar ao carrinho</button>
+            </form>
+        </main>
+
+        <aside class="resumo-pedido" aria-label="Resumo do pedido">
+            <div>
+                <h3 style="margin:8px 8px 8px;">Resumo do pedido</h3>
+                <p style="margin:8px;color:var(--muted);font-size:0.95rem;">Verifique itens, quantidades e valores antes de confirmar.</p>
+            </div>
+
+            {% for produto in unico %}
+            <div class="items" role="list" aria-live="polite">
+                <div class="item" role="listitem">
+                    <div class="item-info">
+                        <div style="margin:8px;font-weight:80;">{{ produto.nome }}</div>
+                        <div style="margin:8px;color:var(--muted);font-size:0.9rem;">{{ produto.desc }}</div>
+                    </div>
+                        <div style="text-align:right;">
+                            <div class="item-qty">{{ Carrinho.itens }}</div>
+                            <div style="margin:8px;font-weight:600;margin-top:6px;">R$ {{ produto.valor }}</div>
+                        </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="totals">
+                <div class="line"><span>Subtotal</span><span>R$ {{ taxa.checkout }}</span></div>
+                <div class="line"><span>Frete</span><span>R$ {{ frete.checkout }}</span></div>
+                <div class="line"><span>Desconto</span><span>R$ {{ desconto.checkout }}</span></div>
+                <div class="line total"><span>Total</span><span>R$ {{ total.checkout }}</span></div>
+            </div>
+
+            <div style="display:flex; justify-content:center; margin-top:6px;">
+                <button type="button" class="primary" onclick="document.querySelector('.checkout-form').requestSubmit()">Pagar R$ {{ total.checkout }}</button>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

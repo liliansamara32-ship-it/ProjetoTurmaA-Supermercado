@@ -1,0 +1,96 @@
+/* === Reset inicial === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+/* === Corpo principal === */
+body {
+    height: 100vh; /* ocupa a tela toda */
+    display: flex;
+    justify-content: center;
+    background-color: #E6EBE3;
+    align-items: flex-start;
+}
+ 
+/* === Container geral === */
+.logo-login {
+    margin-top:30px;
+    position: relative; /* Importante: base para o position absolute do logo */
+    width: 900px;
+    min-height: 620px;
+    height: auto;
+    background-color: #D4E4CA;
+    border-radius: 20px;
+    border: 2px solid #FFFFFF;
+}
+ 
+/* === Logo === */
+.logo {
+    position: absolute;
+    top: -60px; /* ajusta a posição pra cima */
+    left: 50%;
+    transform: translateX(-50%);
+   
+    width: 530px;       /* aumenta a largura */
+    height: 180px;      /* diminui a altura pra ficar mais achatado */
+   
+    background-color: rgb(43, 85, 64);
+    border-radius: 200px; /* bordas mais ovais */
+   
+    display: flex;
+    justify-content: center;
+    align-items: center; /* centraliza o texto verticalmente */
+   
+    font-family: 'Aclonica', sans-serif;
+
+    font-size: 56px;
+   
+    /* borda amarela dourada */
+    border: 4px solid rgba(255, 223, 142, 1);
+    box-shadow: rgba(0, 0, 0, 0.473) 0px  1px 2px;
+    padding-top: 70px;
+}
+ 
+ 
+ 
+.logo .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Aclonica', sans-serif;
+    font-weight: 800;
+    font-size: 70px;     /* ajuste conforme necessário */
+    line-height: 1;
+    letter-spacing: 1px;
+    user-select: none;
+}
+ 
+ 
+/* cores conforme a imagem */
+.logo .brand-green { color: rgba(86, 138, 53, 1);
+                    text-shadow: 2px -3px 0px rgba(69, 100, 50, 0.733);
+}           /* parte "Sid" */
+.logo .brand-apos  { color:rgba(255, 184, 0, 1); font-size: 0.85em;
+                    text-shadow: 2px -3px 0px rgba(172, 132, 31, 0.719);
+} /* o 's amarelo */
+.logo .brand-red   { color: rgba(183, 48, 35, 1);
+                    text-shadow: 2px -3px 0px rgba(146, 46, 37, 0.705);
+}           /* parte "Mart" */
+ 
+/* Ajustes visuais opcionais (sombra fina para destaque) */
+ 
+ 
+/* === Login === */
+.login {
+    position: relative;
+    top: 100px; /* empurra o conteúdo um pouco pra baixo */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+
+

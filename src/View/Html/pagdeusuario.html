@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIRME PAGAMENTO</title>
+    <link rel="stylesheet" href="/pagdeusuario.css">
+</head>
+
+<body>
+
+<header class="TopoInfo">
+    <div class="LogoPag">
+        <a href="#" class="Logosid">
+            <span class="logo"><img src="/public/img/Logo.svg"></span>
+        </a>
+    </div>
+
+    <div class="pesquisar">
+        <input type="text" class="txtPesquisar">
+        <span class="lupa"><img src="/public/img/lupa.png"></span>
+    </div>
+
+    <nav class="menu">
+        <a href="#" class="BtnMenu P">Perfil <span class="icon"><img src="/public/img/Usuario.png"></span></a>
+        <a href="#" class="BtnMenu F">Favoritos <span class="icon"><img src="/public/img/Favoritos.png"></span></a>
+        <a href="#" class="BtnMenu E">Entrega <span class="icon"><img src="/public/img/Entrega.png"></span></a>
+        <a href="#" class="BtnMenu C">Carrinho <span class="icon"><img src="/public/img/Carrinho.png"></span></a>
+    </nav>
+</header>
+<div class="container1">
+   <div class="titulo1"><p>SUA CONTA</p></div>
+   <div class="subtitulo1"><p>Gerencie sua conta</p></div>
+   <div class="nome">{{usuario}}</div>
+   <div class="data">{{data de login}}</div>
+<div class="dados"><p>dados pessoais</p></div>
+<div>
+    <input type="" class="" placeholder="Email">
+    <input type="" class="" placeholder="Data de nascimento">
+    <input type="" class="" placeholder="Nome completo">
+    <input type="" class="" placeholder="Telefone">
+    
+</div>
+<button class="Mudar">Mudar informações</button>
+<div class="end">Endereços</div>
+
+</div>
+
+<div class="endereco-card">
+    <div class="endereco-info">
+        <h3 class="endereco-titulo">{{apelido local}}</h3>
+        <p class="endereco-rua">{{endereco}}</p>
+    </div>
+    <div class="endereco-acoes">
+        <button class="btn-editar">Editar</button>
+        <button class="btn-remover">Remover</button>
+    </div>
+</div>
+
+<div class="endereco-card">
+    <div class="endereco-info">
+        <h3 class="endereco-titulo">{{apelido local}}</h3>
+        <p class="endereco-rua">{{endereco}}</p>
+    </div>
+    <div class="endereco-acoes">
+        <button class="btn-editar">Editar</button>
+        <button class="btn-remover">Remover</button>
+    </div>
+</div>
+
+<button class="botaoend">Adicionar endereço +</button>
+
+</div>
+  <!--Rodapé-->
+    <footer class="Rodape">
+
+        <div class="LogonoRodape">
+            <div class="rodape-Logo">
+                <img src="/public/img/Logo.svg" />
+            </div>
+
+            <!-- centro: texto legal / informações -->
+            <div class="rodapeTexto">
+                <p class="rodapetitulo">© Sid's-Mart 2025 &nbsp; Mercado - Etec Jaraguá</p>
+                <p class="rodapeInfo"> • Endereço: R. Jairo de Almeida Machado, 401 - Jaraguá, São Paulo - SP, 02998-060
+                </p>
+                <p class="rodapeInfo"> •Instagram: @developers._</p>
+                <p class="rodapeInfo"> • O melhor curso da Etec Jaraguá | Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>

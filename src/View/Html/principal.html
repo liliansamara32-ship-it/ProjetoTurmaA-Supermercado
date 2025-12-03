@@ -8,9 +8,60 @@
 </head>
 
 <body>
+    <header>
+        <div class="TopoInfo">
+
+            <!--redireciona pra pag inicial-->
+            <div class="LogoPag">
+                <a href="#" class="Logosid">
+                    <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+            </div>
+    
+            <div class="pesquisar">
+                <input type="text" class="txtPesquisar">
+                <span class="lupa"><img src="../img/lupa.png"></span>
+            </div>
+    
+            <nav class="menu">
+                <a href="#" class="BtnMenu P">Perfil
+                    <span class="icon"><img src="../Fotos/Usuario.png"></span> </a>
+    
+                <a href="#" class="BtnMenu F">Favoritos
+                    <span class="icon"><img src="../img/Favoritos.png"></span> </a>
+    
+                <a href="#" class="BtnMenu E">Entrega
+                    <span class="icon"><img src="../img/Entrega.png"></span> </a>
+    
+                <a href="#" class="BtnMenu C">Carrinho
+                    <span class="icon"><img src="../img/Carrinho.png"></span> </a>
+            </nav>
+        </div>
+    
+        <!--Seta da navegação-->
+        <div class="Setinha">
+            <a href="#">
+                <img src="../Fotos/Seta.png" class="SetaPag"></a>
+        </div>
+        <h1>{{ titulo }}</h1>
+        <p class="lead">{{ conteudo }}</p>
+    </header>
+    
     <h1>Página principal do Supermercado</h1>
     <p>{{conteudo}}</p>
 
+    <p>NOSSOS PRODUTOS MAIS VENDIDOS</p>
+    {% for produto in unico %}
+        <div class="produto">
+            <div class="produto-info">
+                <img src="{{ produto.foto1 }}" class="produto-img">
+
+                <div class="produto-detalhes">
+                    <h3 class="produto-nome">Nome:{{ produto.nome }}</h3>
+                    <p class="produto-preco">Preço: <span>R$ {{ produto.valor }}</span></p>
+                <span class="produto-desconto">Desconto:{{ produto.porcentagem }}</span>
+            </div>
+        </div>
+    {% end for %}
 </body>
 
 </html>

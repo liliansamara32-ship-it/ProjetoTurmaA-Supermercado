@@ -9,6 +9,39 @@
 <body>
     <div class="container">
         <header>
+            <div class="TopoInfo">
+
+                <!--redireciona pra pag inicial-->
+                <div class="LogoPag">
+                    <a href="#" class="Logosid">
+                        <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+                </div>
+        
+                <div class="pesquisar">
+                    <input type="text" class="txtPesquisar">
+                    <span class="lupa"><img src="../img/lupa.png"></span>
+                </div>
+        
+                <nav class="menu">
+                    <a href="#" class="BtnMenu P">Perfil
+                        <span class="icon"><img src="../Fotos/Usuario.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu F">Favoritos
+                        <span class="icon"><img src="../img/Favoritos.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu E">Entrega
+                        <span class="icon"><img src="../img/Entrega.png"></span> </a>
+        
+                    <a href="#" class="BtnMenu C">Carrinho
+                        <span class="icon"><img src="../img/Carrinho.png"></span> </a>
+                </nav>
+            </div>
+        
+            <!--Seta da navegação-->
+            <div class="Setinha">
+                <a href="#">
+                    <img src="../Fotos/Seta.png" class="SetaPag"></a>
+            </div>
             <h1>{{ titulo }}</h1>
             <p class="lead">{{ conteudo }}</p>
         </header>
@@ -21,17 +54,17 @@
                     <div class="row">
                         <div>
                             <label for="nome">Nome completo</label>
-                            <input id="nome" name="nome" type="text" placeholder="{{ nome_completo }}" />
+                            <input id="nome" name="nome" type="text" value="{{ nome_completo }}" />
                         </div>
                         <div>
                             <label for="email">E-mail</label>
-                            <input id="email" name="email" type="email" placeholder="{{ email_usuario }}" />
+                            <input id="email" name="email" type="email" value="{{ email_usuario }}" />
                         </div>
-                    </div>
+                    </div><br>
 
                     <div>
                         <label for="telefone">Telefone</label>
-                        <input id="telefone" name="telefone" type="tel" placeholder="{{ telefone_usuario }}" />
+                        <input id="telefone" name="telefone" type="tel" value="{{ telefone_usuario }}" />
                     </div>
                 </fieldset>
 
@@ -39,24 +72,24 @@
                     <legend style="font-weight:600;margin:12px 0 6px;">Endereço de entrega</legend>
                     <div>
                         <label for="endereco">Endereço</label>
-                        <input id="endereco" name="endereco" type="text" placeholder="{{ endereco_entrega }}" />
-                    </div>
+                        <input id="endereco" name="endereco" type="text" value="{{ endereco_entrega }}" />
+                    </div><br>
 
                     <div class="row">
                         <div>
                             <label for="cidade">Cidade</label>
-                            <input id="cidade" name="cidade" type="text" placeholder="{{ cidade_entrega }}" required />
+                            <input id="cidade" name="cidade" type="text" value="{{ cidade_entrega }}" required />
                         </div>
                         <div>
                             <label for="estado">Estado</label>
-                            <input id="estado" name="estado" type="text" placeholder="{{ estado_entrega }}" required />
+                            <input id="estado" name="estado" type="text" value="{{ estado_entrega }}" required />
                         </div>
-                    </div>
+                    </div><br>
 
                     <div class="row">
                         <div>
                             <label for="cep">CEP</label>
-                            <input id="cep" name="cep" type="number" placeholder="{{ cep_entrega }}" required />
+                            <input id="cep" name="cep" type="text" value="{{ cep_entrega }}" required />
                         </div>
                         <div>
                             <label for="complemento">Complemento (opcional)</label>
@@ -64,75 +97,8 @@
                         </div>
                     </div>
                 </fieldset>
-                
-                <fieldset style="border:none;padding:0;margin:0;">
-                    <legend style="font-weight:600;margin:12px 0 6px;">Pagamento</legend>
-                    <div>
-                        <label for="metodo">Método</label>
-                        <select id="metodo" name="metodo" required>
-                            <option value="">Selecione</option>
-                            <option value="cartao">Cartão de crédito</option>
-                            <option value="boleto">Boleto</option>
-                            <option value="pix">PIX</option>
-                        </select>
-                    </div>
-
-                    <div id="campos-cartao" style="display:block;">
-                        <div class="row" style="margin-top:6px;">
-                            <div>
-                                <label for="numero-cartao">Número do cartão</label>
-                                <input id="numero-cartao" name="numero-cartao" type="number" maxlength="19" placeholder="{{ numero_cartao }}" />
-                            </div>
-                            <div>
-                                <label for="validade">Validade (MM/AA)</label>
-                                <input id="validade" name="validade" type="number" maxlength="5" placeholder="{{ validade_cartao }}" />
-                            </div>
-                        </div>
-                        <div style="margin-top:8px;">
-                            <label for="cvv">CVV</label>
-                            <input id="cvv" name="cvv" type="number" maxlength="4" placeholder="{{ cvv_cartao }}" />
-                        </div>
-                    </div>
-                </fieldset>
-
-                <div class="actions" style="margin-top:12px;">
-                    <button type="submit" class="primary">Confirmar e pagar</button>
-                    <button type="button" class="secondary" onclick="window.history.back()">Voltar ao carrinho</button>
-                </div>
             </form>
         </main>
-        <aside class="resumo-pedido" aria-label="Resumo do pedido">
-            <div>
-                <h3 style="margin:0 0 8px;">Resumo do pedido</h3>
-                <p style="margin:0;color:var(--muted);font-size:0.95rem;">Verifique itens, quantidades e valores antes de confirmar.</p>
-            </div>
-
-            {% for produto in unico %}
-            <div class="items" role="list" aria-live="polite">
-                <div class="item" role="listitem">
-                    <div class="item-info">
-                        <div style="font-weight:600;">{{ produto.nome }}</div>
-                        <div style="color:var(--muted);font-size:0.9rem;">{{ produto.desc }}</div>
-                    </div>
-                    <div style="text-align:right;">
-                        <div class="item-qty">{{ Carrinho.itens }}</div>
-                        <div style="font-weight:600;margin-top:6px;">R$ {{ produto.valor }}</div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-
-            <div class="totals">
-                <div class="line"><span>Subtotal</span><span>R$ {{ taxa.checkout }}</span></div>
-                <div class="line"><span>Frete</span><span>R$ {{ frete.checkout }}</span></div>
-                <div class="line"><span>Desconto</span><span>R$ {{ desconto.checkout }}</span></div>
-                <div class="line total"><span>Total</span><span>R$ {{ total.checkout }}</span></div>
-            </div>
-
-            <div style="display:flex; justify-content:center; margin-top:6px;">
-                <button type="button" class="primary" onclick="document.querySelector('.checkout-form').requestSubmit()">Pagar R$ {{ total.checkout }}</button>
-            </div>
-        </aside>
     </div>
 </body>
 </html>

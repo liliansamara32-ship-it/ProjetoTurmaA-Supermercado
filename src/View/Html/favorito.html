@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
     <link rel="stylesheet" href="/public/css/favoritos.css">
-    <script src="/public/script/favoritos.js"></script>
 </head>
 
 <body>
 
     <!--Pesquisa e menu-->
-    <div class="TopoInfo">
+    <header class="TopoInfo">
 
         <!--redireciona pra pag inicial-->
         <div class="LogoPag">
@@ -22,28 +21,28 @@
 
         <div class="pesquisar">
             <input type="text" class="txtPesquisar">
-            <span class="lupa"><img src="../Fotos/lupa.png"></span>
+            <span class="lupa"><img src="/public/img/lupa.png"></span>
         </div>
 
         <nav class="menu">
             <a href="#" class="BtnMenu P">Perfil
-                <span class="icon"><img src="../Fotos/Usuario.png"></span> </a>
+                <span class="icon"><img src="/public/img/Usuario.png"></span> </a>
 
             <a href="#" class="BtnMenu F">Favoritos
-                <span class="icon"><img src="../Fotos/Favoritos.png"></span> </a>
+                <span class="icon"><img src="/public/img/Favoritos.png"></span> </a>
 
             <a href="#" class="BtnMenu E">Entrega
-                <span class="icon"><img src="../Fotos/Entrega.png"></span> </a>
+                <span class="icon"><img src="/public/img/Entrega.png"></span> </a>
 
             <a href="#" class="BtnMenu C">Carrinho
-                <span class="icon"><img src="../Fotos/Carrinho.png"></span> </a>
+                <span class="icon"><img src="/public/img/Carrinho.png"></span> </a>
         </nav>
-    </div>
+    </header>
 
     <!--Seta da navegação-->
     <div class="Setinha">
         <a href="#">
-            <img src="../Fotos/Seta.png" class="SetaPag"></a>
+            <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
     </div>
 
     <!--titulo favorito-->
@@ -76,27 +75,37 @@
                     </div>
                 </div>
 
-                <div class="acao-compra">
-                    <div class="quantidade">
-                        <button class="menos">-</button>
-                        <input type="text" min="1" value="1" class="QTDE" readonly>
-                        <button class="mais">+</button>
-                    </div>
-
-                    <div class="btnFavoritos">
-                        <button>Remover</button>
-                        <button>Carrinho</button>
-                    </div>
+                <div class="btnFavoritos">
+                    <button>Remover</button>
+                    <button>Carrinho</button>
                 </div>
             </div>
         </div>
-
+        </div>
     </form>
 
     <!--{% endfor %}
         {% for Carrinho in informações %}-->
 
-    &copy Sid's-Mart 2025
+    <!--Rodapé-->
+    <footer class="Rodape">
+
+        <div class="LogonoRodape">
+            <div class="rodape-Logo">
+                <img src="/public/img/Logo.svg" />
+            </div>
+
+            <div class="rodapeTexto">
+                <p class="rodapetitulo">© Sid's-Mart 2025 &nbsp; Mercado - Etec Jaraguá</p>
+                <p class="rodapeInfo"> • Endereço: R. Jairo de Almeida Machado, 401 - Jaraguá, São Paulo - SP, 02998-060
+                </p>
+                <p class="rodapeInfo"> •Instagram: @developers._</p>
+                <p class="rodapeInfo"> • O melhor curso da Etec Jaraguá | Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+
+    </footer>
+
 </body>
 
 </html>

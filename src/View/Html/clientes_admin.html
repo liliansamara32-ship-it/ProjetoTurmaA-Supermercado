@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Admin) Clientes</title>
+    <link rel="stylesheet" href="clientes_admin.css">
+</head>
+
+<body>
+
+    <!--Barra do Úsuario-->
+    <header class="cabeçalho">
+
+        <div class="LogoPag">
+
+            <!--encaminha para a tela inicial do admin-->
+            <a href="#" class="LogoAdmin">
+                <span class="logo"><img src="../Fotos/LogoUser.png"></span> </a>
+        </div>
+
+        <h1>Painel Administrativo (Clientes)</h1>
+    </header>
+
+    <div class="Setinha">
+        <a href="#">
+            <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
+    </div>
+
+    <form>
+
+        <div class="Lembrete">
+            <p>Lembrete: as alterações feitas a seguir são permanentes. As informações abaixo possuem apenas dados de
+                CLIENTES.</p>
+        </div>
+
+        <!--Campos da tabela-->
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Data de nascimento</th>
+                    <th>Email</th>
+                    <th>Telefone 1</th>
+                    <th>Telefone 2</th>
+                    <th>CPF</th>
+                    <th>Senha</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody class="Campo-User">
+
+                <!--Informações dos clientes-->
+                {% for cliente in usuario %}
+                <tr>
+                    <td>{{ cliente.codigo }}</td>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.datanascimento }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.tel1 }}</td>
+                    <td>{{ cliente.tel2 }}</td>
+                    <td>{{ cliente.cpf }}</td>
+                    <td>{{ cliente.senha }}</td>
+
+                    <!--editar ou excluir úsuario-->
+                    <td class="acoes">
+                        <button class="editar" href="#">
+                            <span class="icons"><img src="../Fotos/lapis.png"></span></button>
+                        <button class="excluir" href="#">
+                            <span class="icons"><img src="../Fotos/lixeira.png"></span></button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+
+    <!--troca as páginas-->
+    <!-- # mudar a referencia pelo codigo-->
+    <div class="paginacao">
+        <a href="#">&lt;</a>
+        <a href="#">&gt;</a>
+    </div>
+
+    &copy Sid's-Mart 2025
+</body>
+
+</html>

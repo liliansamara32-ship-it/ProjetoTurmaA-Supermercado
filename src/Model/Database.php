@@ -33,6 +33,8 @@ class Database
             );
             self::$conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
+
+        return self::$conexao;
     }
 
     function newUser(User $user): bool

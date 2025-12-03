@@ -1,0 +1,22 @@
+O comando utilizado foi: sudo apt install apache2 -y.
+essse comando instala o apache e diz sim para as configurações iniciais.
+
+o comando que usamos para instalar foi:
+sudo apt install php -y. Esse comando instala o php e diz sim para todas as configurações iniciais. resolve #211
+
+O comando que utilizamos para a instalação da ferramenta foi:
+sudo apt install phpmyadmin -y
+
+O comando instala o phpmyadmin e diz sim para todas as configurações de instalação. resolve #210
+
+sudo apt install vsftpd -y. foi o comando que usamos para a instalação, lembrando que o -y é para dizere sim para as configurações iniciais.  
+O VSFTPD é um servidor FTP para sistemas tipo Unix e Linux, conhecido por ser rápido, estável e seguro. Usamos oir recomendação do Sidnei. resolve #212
+
+para a criação dos usuários utilizamos o comando: sudo ./criarusuarinhos.sh josilde.ramos " josilde ramos de andrade"
+
+explicando o código:
+
+*  ./criarusuarinhos.sh ( Arquivo que vamos colocar os usuários)
+* josilde.ramos (nome que o usuário vai acesasar no ftp)
+* " josilde ramos de andrade" (nome completo do usuário)
+resolve #213

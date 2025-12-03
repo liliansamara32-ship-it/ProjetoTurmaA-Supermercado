@@ -38,7 +38,7 @@ class Admin
      */
     public function __construct()
     {
-        Util::averigua();
+        Util::checkAdmin();
         // Configura o carregador de templates Twig para buscar arquivos na pasta "src/View".
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View");
         // Inicializa o ambiente Twig.
@@ -145,6 +145,43 @@ class Admin
         ]);
     }
 
+    /**
+ * Lida com a exclusão de um produto após a confirmação.
+ * @param array $dados Array contendo os dados do produto a serem deletados.
+ * @return void Renderiza a página com a lista de produtos ou redireciona.
+ */
+public function deletarUmProduto(array $dados): void {
+    
+    $id = intval($dados["id"] ?? 0);
+    $bd = new Database(); 
+
+ //valida o id
+    if ($id <= 0) {
+        // mensagem de erro
+        $_SESSION['alert_message'] = 'Erro na exclusão: ID inválido.';
+        $_SESSION['alert_type'] = 'error';
+        
+        // manda para a pagina listar produtos 
+        echo $this->ambiente->render("ListarProdutos.html");
+        return;
+    }
+
+    //deleta o produto
+    $produtoDeletado = $bd->deletarProduto($id);
+
+    if ($produtoDeletado) {
+        $_SESSION['alert_message'] = "Produto $id deletado com sucesso.";
+        $_SESSION['alert_type'] = 'success';
+    } else {
+        $_SESSION['alert_message'] = "Erro ao deletar o produto $id. O produto pode não existir.";
+        $_SESSION['alert_type'] = 'error';
+    }
+
+    // manda para pagina de listar produtos
+    echo $this->ambiente->render("ListarProdutos.html");
+}
+
+
 
     /**
      * Lista todos os produtos disponíveis no banco de dados.
@@ -160,7 +197,9 @@ class Admin
             "produtos" => $produtos
         ]);
     }
+    
 
+ 
 
     /**
      * Processa a requisição de atualização de um produto.
@@ -204,4 +243,9 @@ class Admin
         // Renderiza o formulário de atualização com a mensagem de aviso.
         echo $this->ambiente->render("AtualizarProduto.html", ["avisos" => $avisos]);
     }
+
 }
+
+
+
+

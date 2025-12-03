@@ -137,6 +137,10 @@ body {
   z-index: 10;
 }
 
+.SetaPag:active {
+  transform: scale(0.92);
+}
+
 /*Produto único*/
 
 .Corpo {
@@ -164,7 +168,7 @@ body {
 .ProdutoUni {
   background: #F8F8F8;
   border-radius: 18px;
-  box-shadow: 0px 5px 10px #1C943E;
+  box-shadow: 0px 5px 10px #E0E0E0;
   padding: 20px;
   width: 670px;
   display: flex;
@@ -202,6 +206,62 @@ body {
   gap: 15px;
   margin-top: auto;
   padding-bottom: 10px;
+}
+
+/*botões carrinho e favorito*/
+.carrinho-favorito {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.BtnFavorito,
+.BtnCarrinho {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.BtnFavorito img,
+.BtnCarrinho img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+button.BtnFavorito,
+button.BtnCarrinho {
+  all: unset;
+}
+
+.BtnFavorito:hover,
+.BtnCarrinho:hover {
+  transform: scale(1.08);
+}
+
+.BtnFavorito:active,
+.BtnCarrinho:active {
+  transform: scale(0.92);
+}
+
+/* Botão comprar */
+.Comprar {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ACD162;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /*Quantidade do produto*/
@@ -242,24 +302,8 @@ body {
   color: #333;
 }
 
-/* Botão comprar */
-.Comprar {
-  display: block;
-  width: 200px;
-  margin: 20px auto;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 20px;
-  background-color: #ACD162;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-button:hover {
+button.quantidade,
+button.Comprar:hover {
   background-color: #69a146;
   transform: scale(1.05);
 }
@@ -272,5 +316,50 @@ button:hover {
   background-color: #E0EED7;
   color: #2B5540;
   border-radius: 20px;
-  box-shadow: 0 4px 5px 3px #60824c
+  box-shadow: 0 4px 5px 3px #D4DFCD;
+}
+
+/*Rodapé*/
+.Rodape {
+  background: #F7F8F6;
+  border-top: 3px solid #DBB44D;
+  padding: 12px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.LogonoRodape {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.rodape-Logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.rodapeTexto {
+  flex: 1 1 60%;
+  text-align: center;
+  color: #6d6d6d;
+}
+
+.rodapetitulo {
+  margin: 0;
+  font-weight: 600;
+  color: #254a34;
+  font-size: 13px;
+}
+
+.rodapeInfo {
+  margin: 2px 0 0;
+  font-size: 11px;
+  line-height: 1.1;
+  color: #9aa290;
+  opacity: 0.95;
 }
